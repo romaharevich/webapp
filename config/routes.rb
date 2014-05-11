@@ -1,12 +1,14 @@
 Newapp::Application.routes.draw do
   get "sessions/new"
 
-  get "users/new"
-
-get "users/:id" => "users#show"
+get "users/new"
+post "users/:id" => "users#update"
+get "users" => "users#list", :as => "list"
+get "users/:id" => "users#show", :as => "show"
 get "log_out" => "sessions#destroy", :as => "log_out"
 get "log_in" => "sessions#new", :as => "log_in"
 get "sign_up" => "users#new", :as => "sign_up"
+
 root :to => "users#new"
 resources :users
 resources :sessions

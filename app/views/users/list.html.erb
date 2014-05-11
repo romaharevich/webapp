@@ -1,0 +1,11 @@
+
+<% if @user.blank? %>
+<p>There are not any users in the system.</p>
+<% else %>
+<h1> List of users </h1> <br>
+<ul id="user">
+<% @user.each do |c| %>
+<li><%= link_to c.email, {:action => 'show', :id => c.id} -%></li>
+<% end %>
+</ul>
+<% end %>
