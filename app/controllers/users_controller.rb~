@@ -9,17 +9,21 @@ class UsersController < ApplicationController
 	def create
   		@user = User.new(params[:user])
   		if @user.save
-    			redirect_to show, :notice => "Signed up!"
+    			redirect_to '/users', :notice => "Signed up!"
   		else
     			render "new"
   		end
 	end
 
 	def list
+		redirect_to root_url, :notice => "Please log in" if session[:user_id].nil?
+
 		@user = User.find(:all)
 	end
 
  	def show
+		redirect_to root_url, :notice => "Please log in" if session[:user_id].nil?
+
     		@user = User.find(params[:id])
   	end
 	
