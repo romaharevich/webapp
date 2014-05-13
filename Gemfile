@@ -26,6 +26,7 @@ end
 
 gem 'jquery-rails'
 gem 'mysql2'
+gem 'pry'    #binding.pry in code, it's will be breakpoint ()
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

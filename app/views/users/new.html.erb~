@@ -1,5 +1,43 @@
+ <title>Sign Up</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Custom styles for this template -->
+    <link href="/css/signin.css" rel="stylesheet">
 
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="container">
+
+    <form action='${postUrl}' method='POST' id='loginForm' class="form-signin" autocomplete='off'>
+        <g:if test='${flash.message}'>
+            <div class="alert alert-danger">
+                ${flash.message}
+            </div>
+        </g:if>
+
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="text" class="form-control" name='j_username' id='username' placeholder="Email address" required autofocus>
+        <input type="password" class="form-control" name='j_password' id='password' placeholder="Password" required>
+        <label class="checkbox">
+            <p id="remember_me_holder">
+                <input type='checkbox' class='chk' name='${rememberMeParameter}' id='remember_me'
+                       <g:if test='${hasCookie}'>checked='checked'</g:if>/>
+                Remember me
+            </p>
+        </label>
+        <input type='submit' id="submit" class="btn btn-lg btn-primary btn-block"  value='Register'/>
+        <g:link url="[action: 'index', controller: 'registration']">Sign Up</g:link>
+    </form>
+</div>
+</body>
 <h1>Sign Up</h1>
 
 <%= form_for @user do |f| %>
@@ -13,6 +51,7 @@
       </ul>
     </div>
   <% end %>
+dd
   <p>
     <%= f.label :first_name%><br />
     <%= f.text_field :first_name %>
@@ -42,5 +81,5 @@
   <p class="button"><%= f.submit %></p>
 
 <% end %>
-
+d
 
